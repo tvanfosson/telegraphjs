@@ -1,4 +1,7 @@
-﻿define(function() {
+﻿// This defines a global module Telegraph that can be used to instantiate
+// an object for a specific window and also registers an AMD module, telegraph,
+// that can be used with a module loader, such as RequireJS.
+(function (window) {
 
     // Create the telegraph server using the specified options. Target
     // specifies the origin of the messages you send. Accept specifies
@@ -122,5 +125,9 @@
         }
     };
 
-    return telegraph;
-});
+    if (typeof define === "function" && define.amd) {
+        define("telegraph", [], function () { return telegraph; });
+    }
+
+    window.Telegraph = telegraph;
+})(window);
