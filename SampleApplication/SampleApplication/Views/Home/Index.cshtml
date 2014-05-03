@@ -1,0 +1,21 @@
+﻿@model dynamic
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section scripts
+{
+    <script data-main="/assets/scripts/main-app.js" src="~/scripts/require.js"></script>
+}
+<div class="main-content">
+    <section role="navigation" class="navigation">
+        <button class="btn-default js-open-btn">Open</button>
+    </section>
+    <section role="article" class="js-messages">
+        <h2>Messages</h2>
+    </section>
+    <div class="hidden js-frame-container">
+        <iframe id="client-frame" src="@Url.Action("frame")" class="container" height="1000"></iframe>
+    </div>
+</div>
