@@ -1,0 +1,11 @@
+﻿.main-content {
+    padding-top: 50px
+}
+
+.main-content.frame-content {
+    padding-top: 0;
+}
+
+.main-content > section.navigation {
+    padding: 20px 0;
+}

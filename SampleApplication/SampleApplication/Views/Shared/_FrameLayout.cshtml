@@ -1,0 +1,25 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Sample application for TelegraphJS">
+    <meta name="author" content="Tim VanFosson">
+    <title>@ViewBag.Title</title>
+    <link href="~/content/bootstrap.min.css" rel="stylesheet">
+    <link href="~/content/bootstrap-theme.min.css" rel="stylesheet">
+    <link href="~/assets/styles/site.css" rel="stylesheet">
+
+    @RenderSection("header", false)
+</head>
+<body role="document">
+    <div class="container">
+        @RenderBody()
+    </div>
+    <script src="~/scripts/jquery-1.9.0.min.js"></script>
+    <script src="~/scripts/bootstrap.min.js"></script>
+    @RenderSection("scripts", false)
+</body>
+</html>
