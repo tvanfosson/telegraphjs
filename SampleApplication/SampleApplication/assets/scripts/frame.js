@@ -29,12 +29,12 @@
     };
 
     controller.prototype.open = function (e) {
-        this.telegraph.send('APP:opened');
+        this.telegraph.send('APP:opened', { when: new Date() });
         this.addMessage(e);
     };
 
     controller.prototype.addMessage = function (e) {
-        $('.js-messages').append($('<p>Frame message received ' + e + '</p>'));
+        $('.js-messages').append($('<p>Main message received ' + e + '</p>'));
     };
 
     controller.prototype.close = function () {

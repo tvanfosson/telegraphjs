@@ -47,12 +47,12 @@
         }
     };
 
-    controller.prototype.opened = function(e) {
-        $('.js-messages').append($('<p>Main message received ' + e + '</p>'));
+    controller.prototype.opened = function(e, data) {
+        $('.js-messages').append($('<p>Frame message received ' + e + ' at ' + data.when + '</p>'));
     };
 
     controller.prototype.close = function (e) {
-        $('.js-messages').append($('<p>Main message received ' + e + '</p>'));
+        $('.js-messages').append($('<p>Frame message received ' + e + '</p>'));
         $('.js-frame-container').addClass('hidden');
     };
 
