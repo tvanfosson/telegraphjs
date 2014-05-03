@@ -1,4 +1,4 @@
-﻿define(["jquery"], function($) {
+﻿define(function() {
 
     // Create the telegraph server using the specified options. Target
     // specifies the origin of the messages you send. Accept specifies
@@ -42,12 +42,17 @@
 
     // Internal methods. These should not be called from outside.
     telegraph.prototype.initHandlers = function () {
-        this.messageHandler = $.proxy(this.dispatch, this);
+        var self = this;
 
-        return this;
+        self.messageHandler = function(e) {
+            self.dispatch(e);
+        };
+
+        return self;
     };
 
     telegraph.prototype.initEvents = function () {
+        var self = this;
 
         if (window.attachEvent) {
             window.attachEvent('onmessage', this.messageHandler, false);
@@ -59,9 +64,19 @@
         return this;
     };
 
+    telegraph.prototype.extend = function(options, overrides) {
+        for (var key in overrides) {
+            if (b.hasOwnProperty(key)) {
+                options[key] = overrides[key];
+            }
+        }
+
+        return options;
+    };
+
     telegraph.prototype.hookup = function (w, eventHandlers, options) {
 
-        this.options = $.extend(this.options, options || {});
+        this.options = this.extend(this.options, options || {});
 
         this.acceptRegex = new RegExp(this.options.accept, 'i');
         this.target = this.options.target;
