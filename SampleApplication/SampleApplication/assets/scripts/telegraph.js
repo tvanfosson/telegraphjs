@@ -20,6 +20,7 @@
         this.window.postMessage({ event: e, data: data }, this.target);
     }
 
+    // TODO: this should handle space-separated events ala jQuery 
     telegraph.prototype.on = function (evt, handler) {
         if (!this.eventHandlers.hasOwnProperty(evt)) {
             this.eventHandlers[evt] = [];
@@ -27,6 +28,7 @@
         this.eventHandlers[evt].push(handler);
     };
 
+    // TODO: this should handle space-separated events ala jQuery 
     telegraph.prototype.off = function (evt, handler) {
         var handlers = this.eventHandlers[evt];
         if (handlers) {
